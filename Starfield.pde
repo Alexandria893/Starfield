@@ -1,7 +1,9 @@
 //your code here
 void setup()
 {
-	//your code here
+	
+	size(500,500);
+
 }
 void draw()
 {
@@ -9,16 +11,32 @@ void draw()
 }
 class NormalParticle
 {
-	//your code here
+
+	double myX;
+	double myY;
+	int c; //color
+	double a; //angle
+	double s; //speed
+	NormalParticle()
+	{
+
+
+
+
+
+	}
 }
+
 interface Particle
 {
 	//your code here
 }
+
 class OddballParticle //uses an interface
 {
 	//your code here
 }
+
 class JumboParticle //uses inheritance
 {
 	//your code here
