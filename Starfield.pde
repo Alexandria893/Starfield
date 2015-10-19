@@ -9,27 +9,37 @@ void draw()
 {
 	//your code here
 }
-class NormalParticle
-{
 
-	double myX;
-	double myY;
-	int c; //color
-	double a; //angle
-	double s; //speed
-	NormalParticle()
-	{
-
-
-
-
-
-	}
-}
 
 interface Particle
 {
 	//your code here
+}
+
+
+class NormalParticle
+{
+
+	private double myX;
+	private double myY;
+	private int c; //color
+	private double a; //angle
+	private double s; //speed
+	
+	NormalParticle()
+	{
+
+
+		public void move()
+		{
+
+			cos(a)*s+myX;
+
+					
+		}
+
+
+	}
 }
 
 class OddballParticle //uses an interface
