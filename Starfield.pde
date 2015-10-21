@@ -1,13 +1,29 @@
-//your code here
+NormalParticle[] nP;
+
 void setup()
 {
 	
 	size(500,500);
+	nP = new NormalParticle[200];
+		for (int i = 0; i<nP.length; i++)
+		{
+
+			nP[i] = new NormalParticle();
+
+		}
 
 }
 void draw()
 {
-	//your code here
+
+	for (int i = 0; i<nP.length; i++)
+	{
+
+		nP[i].move();
+		nP[i].show();
+
+	}	
+
 }
 
 
@@ -34,10 +50,18 @@ class NormalParticle
 		{
 
 			cos(a)*s+myX;
-
-					
+			sin(a)*s+myY;
+		
 		}
 
+		public void show()
+		{
+
+			fill(255,0,0);
+			ellipse(50,50,myX,myY);
+
+
+		}
 
 	}
 }
