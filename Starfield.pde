@@ -1,18 +1,26 @@
 NormalParticle[] nP;
+Particle[] odd;
 
 void setup()
 {
 	
 	size(500,500);
-	nP = new NormalParticle[200];
+	nP = new NormalParticle[100];
 		for (int i = 0; i<nP.length; i++)
 		{
 
 			nP[i] = new NormalParticle();
 
 		}
+	odd = new Particle[300];
+		for (int i = 0; i<nP.length; i++)
+			{
 
-}
+				odd[i] = new Particle();
+
+			}
+	odd[0] = newOddball();
+} 
 void draw()
 {
 
@@ -29,46 +37,88 @@ void draw()
 
 interface Particle
 {
-	//your code here
+
+	public void show();
+	public void move();
+
 }
 
 
-class NormalParticle
+class NormalParticle implements Particle
 {
 
-	private double myX;
-	private double myY;
-	private int c; //color
-	private double a; //angle
-	private double s; //speed
+	 double myX;
+	 double myY;
+	 int c; //color
+	 double s; //speed
+	 double d; //direction
 	
-	NormalParticle()
+	 NormalParticle()
 	{
 
+		myX = 250;
+		myY = 250; 
+		c = 127;
+		s = Math.random()*11 + 1;
+		d = Math.random()*2*Math.PI;
 
-		public void move()
+	} //void mean function doesnt return anyting
+		 void move()
+		
 		{
-
-			cos(a)*s+myX;
-			sin(a)*s+myY;
+			// += means add and to the variable
+			myX += Math.cos(d)*s;
+			myY += Math.sin(d)*s;
 		
 		}
 
-		public void show()
+		 void show()
 		{
 
 			fill(255,0,0);
-			ellipse(50,50,myX,myY);
+			ellipse((float)myX,(float)myY,50,50);
 
 
 		}
 
-	}
+	
 }
 
-class OddballParticle //uses an interface
+class OddballParticle implements Particle//uses an interface
 {
-	//your code here
+	double myX;
+	double myY;
+	int c; //color
+	double s; //speed
+	double d; //direction
+	
+	OddballParticle()
+	{
+
+		myX = 250;
+		myY = 250; 
+		c = 127;
+		s = Math.random()*4 + 1;
+		d = Math.random()*2*Math.PI;
+	
+	}
+		void move()
+		
+		{
+			// += means add and to the variable
+			myX += Math.cos(d)*s;
+			myY += Math.sin(d)*s;
+		
+		}
+
+		 void show()
+		{
+
+			fill(0,0,255);
+			ellipse((float)myX,(float)myY,50,50);
+
+		}
+
 }
 
 class JumboParticle //uses inheritance
