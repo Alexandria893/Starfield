@@ -1,4 +1,4 @@
-NormalParticle[] nP;
+Particle[] nP;
 Particle[] odd;
 
 void setup()
@@ -7,28 +7,32 @@ void setup()
 	size(500,500);
 	nP = new NormalParticle[100];
 		for (int i = 0; i<nP.length; i++)
+		
 		{
 
 			nP[i] = new NormalParticle();
 
 		}
-	odd = new Particle[300];
-		for (int i = 0; i<nP.length; i++)
-			{
 
-				odd[i] = new Particle();
-
-			}
-	odd[0] = newOddball();
+	odd = new OddballParticle[300];
+	for (int i = 0; i < odd.length; i++)
+	{
+	
+		odd[i] = new OddballParticle();
+	
+	}
 } 
+
 void draw()
 {
 
-	for (int i = 0; i<nP.length; i++)
+	for (int i = 0; i<odd.length; i++)
 	{
 
 		nP[i].move();
 		nP[i].show();
+		odd[i].move();
+		odd[i].show();
 
 	}	
 
