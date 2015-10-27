@@ -1,24 +1,21 @@
-Particle[] nP;
-Particle[] odd;
+Particle[] p;
 
 void setup()
 {
 	
 	size(500,500);
-	nP = new NormalParticle[100];
-		for (int i = 0; i<nP.length; i++)
-		
+	p = new Particle[200];
+		for (int i = 0; i<100; i++)
 		{
 
-			nP[i] = new NormalParticle();
+			p[i] = new NormalParticle();
 
 		}
 
-	odd = new OddballParticle[300];
-	for (int i = 0; i < odd.length; i++)
+	for (int i = 100; i < p.length; i++)
 	{
 	
-		odd[i] = new OddballParticle();
+		p[i] = new OddballParticle();
 	
 	}
 } 
@@ -26,15 +23,13 @@ void setup()
 void draw()
 {
 
-	for (int i = 0; i<odd.length; i++)
+	for (int i = 0; i<p.length; i++)
 	{
 
-		nP[i].move();
-		nP[i].show();
-		odd[i].move();
-		odd[i].show();
-
-	}	
+		p[i].move();
+		p[i].show();
+		
+	}
 
 }
 
@@ -67,8 +62,8 @@ class NormalParticle implements Particle
 		d = Math.random()*2*Math.PI;
 
 	} //void mean function doesnt return anyting
+
 		 void move()
-		
 		{
 			// += means add and to the variable
 			myX += Math.cos(d)*s;
@@ -77,11 +72,10 @@ class NormalParticle implements Particle
 		}
 
 		 void show()
-		{
+		 {
 
-			fill(255,0,0);
-			ellipse((float)myX,(float)myY,50,50);
-
+				fill(255,0,0);
+				ellipse((float)myX,(float)myY,50,50);
 
 		}
 
@@ -106,8 +100,7 @@ class OddballParticle implements Particle//uses an interface
 		d = Math.random()*2*Math.PI;
 	
 	}
-		void move()
-		
+		public void move()
 		{
 			// += means add and to the variable
 			myX += Math.cos(d)*s;
@@ -115,7 +108,7 @@ class OddballParticle implements Particle//uses an interface
 		
 		}
 
-		 void show()
+		public  void show()
 		{
 
 			fill(0,0,255);
