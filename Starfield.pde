@@ -4,7 +4,7 @@ void setup()
 {
 	
 	size(500,500);
-	p = new Particle[200];
+	p = new Particle[400];
 		for (int i = 0; i<100; i++)
 		{
 
@@ -12,12 +12,24 @@ void setup()
 
 		}
 
-	for (int i = 100; i < p.length; i++)
-	{
-	
-		p[i] = new OddballParticle();
-	
-	}
+		for (int i = 100; i < 200; i++)
+		{
+		
+			p[i] = new OddballParticle();
+		
+		}
+		for (int i = 200; i < 300; i++)
+		{
+		
+			p[i] = new JumboParticle();
+		
+		}
+		for (int i = 300; i < p.length; i++)
+		{
+		
+			p[i] = new Face();
+		
+		}
 } 
 
 void draw()
@@ -71,11 +83,11 @@ class NormalParticle implements Particle
 		
 		}
 
-		 void show()
-		 {
-
-				fill(255,0,0);
-				ellipse((float)myX,(float)myY,50,50);
+		void show()
+		{		
+			fill(255,0,0);
+			//ellipse((float)myX,(float)myY,50,50);
+			ellipse((float)myX,(float)myY,random(10),random(10));
 
 		}
 
@@ -112,14 +124,34 @@ class OddballParticle implements Particle//uses an interface
 		{
 
 			fill(0,0,255);
-			ellipse((float)myX,(float)myY,50,50);
+			ellipse((float)myX,(float)myY,30,30);
 
 		}
 
 }
 
-class JumboParticle //uses inheritance
+class JumboParticle extends NormalParticle//uses inheritance
 {
-	//your code here
+
+	public  void show()
+	{
+
+		fill(0,255,0);
+		ellipse((float)myX,(float)myY,10,10);
+
+	}
+
+}
+class Face extends NormalParticle
+{
+
+	public  void show()
+	{
+
+		fill(255,255,0);
+		ellipse((float)myX,(float)myY,10,10);
+
+	}
+
 }
 
